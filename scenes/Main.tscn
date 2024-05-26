@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwnf2yel7egt3"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_5a7kf"]
+[ext_resource type="Texture2D" uid="uid://byyonxopgpa6c" path="res://assets/Starry_sky.jpg" id="2_lmetm"]
+[ext_resource type="PackedScene" uid="uid://ljasxefo8omj" path="res://scenes/Enemy.tscn" id="2_wrx0s"]
+[ext_resource type="FontFile" uid="uid://du6twox1v4152" path="res://assets/font.ttf" id="3_8qv65"]
+
+[sub_resource type="Theme" id="Theme_3ens1"]
+default_font = ExtResource("3_8qv65")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5a7kf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_lmetm")
+expand_mode = 2
+
+[node name="PointsLabel" type="Label" parent="Canvas"]
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 156.0
+offset_bottom = 45.0
+scale = Vector2(1.50023, 1.63494)
+theme = SubResource("Theme_3ens1")
+theme_override_colors/font_color = Color(0.34902, 0.160784, 0, 1)
+theme_override_colors/font_outline_color = Color(0.330765, 0.299374, 0, 1)
+theme_override_constants/outline_size = 1
+text = "Points: "
+
+[node name="AmoLabel" type="Label" parent="Canvas"]
+offset_left = 933.0
+offset_top = 25.0
+offset_right = 1061.0
+offset_bottom = 48.0
+scale = Vector2(1.50023, 1.63494)
+theme = SubResource("Theme_3ens1")
+theme_override_colors/font_color = Color(0.34902, 0.160784, 0, 1)
+theme_override_colors/font_outline_color = Color(0.330765, 0.299374, 0, 1)
+theme_override_constants/outline_size = 1
+text = "Amo: 10"
+
+[node name="enemies" type="Node" parent="Canvas"]
+
+[node name="enemy_2" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(196, 152)
+
+[node name="enemy_3" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(356, 152)
+
+[node name="enemy_4" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(508, 152)
+
+[node name="enemy_5" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(660, 152)
+
+[node name="enemy_6" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(809, 152)
+
+[node name="enemy_7" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(977, 155)
+
+[node name="enemy_9" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(265, 299)
+
+[node name="enemy_10" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(417, 299)
+
+[node name="enemy_11" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(569, 299)
+
+[node name="enemy_12" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(718, 299)
+
+[node name="enemy_13" parent="Canvas/enemies" instance=ExtResource("2_wrx0s")]
+position = Vector2(886, 302)
+
+[node name="EnemySpawnPoint" type="Node2D" parent="Canvas"]
+position = Vector2(48, 152)

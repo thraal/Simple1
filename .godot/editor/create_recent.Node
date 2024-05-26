@@ -1,0 +1,14 @@
+TextureRect
+CanvasLayer
+CanvasGroup
+ColorRect
+Sprite2D
+Container
+Label
+Timer
+Node
+Camera2D
+Node2D
+ParallaxBackground
+CollisionShape2D
+CharacterBody2D
