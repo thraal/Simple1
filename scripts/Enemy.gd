@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-var speed: float = 100.0
+var speed: float = 200.0
 var direction: Vector2 = Vector2.LEFT
 var move_left: bool = true
+var max_health: int = 1000
+var current_health: int = max_health
 
 func _ready() -> void:
 	velocity = direction * speed
@@ -11,38 +13,43 @@ func _ready() -> void:
 	add_to_group("enemies")
 	print("Enemy ready with direction: ", direction, " and speed: ", speed)
 	
-	# Create and configure the timer
-	var timer = Timer.new()
-	timer.wait_time = 1.0  # Adjust the time to change direction as needed
-	timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
-	add_child(timer)
-	timer.start()
-
+	# Add health bar
+	var health_bar = get_node("HealthBar")
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+	
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	
 	if collision:
 		print("Enemy collided with: ", collision.get_collider())
 		if collision.get_collider().is_in_group("bullets"):
-			kill(collision)
+			take_damage(300)
 	
+	# Check if the enemy is out of screen bounds and queue_free if true
+	var viewport = get_viewport_rect()
+	if position.x < -50 or position.x > viewport.size.x + 50 or position.y < -50 or position.y > viewport.size.y + 50:
+		print("Enemy went off-screen and is being removed.")
+		queue_free()
+
 	# Update the velocity based on the current direction
 	velocity = direction * speed
 
-func kill(collision):
-	print("Enemy hit by bullet at position: ", collision.get_collider().position)
+func take_damage(amount: int):
+	current_health -= amount
+	print("Enemy took damage. Current health: ", current_health)
+	
+	var health_bar = get_node("HealthBar")
+	health_bar.value = current_health
+	
+	if current_health <= 0:
+		kill()
+		
+func kill():
+	print("Enemy destroyed.")
 	add_points_to_game(1)
-	queue_free()                           # Remove the enemy
-	collision.get_collider().queue_free()  # Remove the bullet
-
-func _on_Timer_timeout() -> void:
-	move_left = !move_left
-	if move_left:
-		direction = Vector2.LEFT
-	else:
-		direction = Vector2.RIGHT
+	queue_free()  # Remove the enemy
 
 func add_points_to_game(amount: int):
 	var game_manager = get_node("/root/Main")  # Adjust the path as necessary
 	game_manager.add_points(amount)
-

@@ -1,9 +1,9 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1716714606
+::res://::1716830761
 export_presets.cfg::TextFile::-1::1716660243::0::1::::<><>::
 icon.svg::CompressedTexture2D::8381121737075356381::1716220376::1716220381::1::::<><>::
-::res://android/::1716657754
-::res://assets/::1716668099
+::res://android/::1716715045
+::res://assets/::1716715046
 black_background_with_smaller_stars.png::CompressedTexture2D::5762484877893802124::1716667540::1716667540::1::::<><>::
 bullet.webp::CompressedTexture2D::1851870245888527375::1716660775::1716665364::1::::<><>::
 enemy.webp::CompressedTexture2D::2235360887122544328::1716661012::1716665364::1::::<><>::
@@ -12,7 +12,7 @@ Starry_sky.jpg::CompressedTexture2D::4121372480677262168::1716668080::1716668099
 towerDefense_tile250.png::CompressedTexture2D::3009956669163049444::1716592076::1716665364::1::::<><>::
 towerDefense_tile251.png::CompressedTexture2D::6326596165285445209::1716592084::1716665364::1::::<><>::
 towerDefense_tile275.png::CompressedTexture2D::671874055678757195::1716592120::1716665364::1::::<><>::
-::res://assets/main character/::1716665356
+::res://assets/main character/::1716715046
 Bullet_Cannon.png::CompressedTexture2D::8269172205807459573::1716665168::1716665356::1::::<><>::
 Bullet_MG.png::CompressedTexture2D::1772574897946475403::1716665168::1716665356::1::::<><>::
 Cannon2.png::CompressedTexture2D::8874298124505093999::1716665168::1716665356::1::::<><>::
@@ -26,14 +26,14 @@ Missile_Launcher2.png::CompressedTexture2D::4612815097153063287::1716665168::171
 Missile_Launcher3.png::CompressedTexture2D::5023931154870423432::1716665168::1716665356::1::::<><>::
 Missile_Launcher.png::CompressedTexture2D::9189798621948947707::1716665168::1716665356::1::::<><>::
 Tower.png::CompressedTexture2D::697473921648306542::1716665168::1716665356::1::::<><>::
-::res://scenes/::1716668690
-Bullet.tscn::PackedScene::7719207556263018613::1716668690::0::1::::<><>::res://scripts/Bullet.gd<>uid://1ncbdo8ps608::::res://assets/bullet.webp
-Enemy.tscn::PackedScene::790690038558652769::1716668690::0::1::::<><>::res://scripts/Enemy.gd<>uid://633cjybkiv8s::::res://assets/enemy.webp
-game_over.tscn::PackedScene::7911180556905083937::1716668690::0::1::::<><>::uid://codnjwlqvhcfs::::res://assets/black_background_with_smaller_stars.png<>uid://du6twox1v4152::::res://assets/font.ttf
-Main.tscn::PackedScene::6344185906907294522::1716668690::0::1::::<><>::res://scripts/Main.gd<>uid://byyonxopgpa6c::::res://assets/Starry_sky.jpg<>uid://ljasxefo8omj::::res://scenes/Enemy.tscn<>uid://du6twox1v4152::::res://assets/font.ttf
-Player.tscn::PackedScene::224858671234230012::1716668690::0::1::::<><>::res://scripts/Player.gd<>uid://bg2pbwg6l23ae::::res://assets/main character/Cannon.png
-::res://scripts/::1716668504
-Bullet.gd::GDScript::-1::1716667342::0::1::::<>CharacterBody2D<>::
-Enemy.gd::GDScript::-1::1716666843::0::1::::<>CharacterBody2D<>::
-Main.gd::GDScript::-1::1716668504::0::1::::<>Node2D<>::
-Player.gd::GDScript::-1::1716662453::0::1::::<>CharacterBody2D<>::
+::res://scenes/::1716764632
+Bullet.tscn::PackedScene::7719207556263018613::1716764632::0::1::::<><>::res://scripts/Bullet.gd<>uid://1ncbdo8ps608::::res://assets/bullet.webp
+Enemy.tscn::PackedScene::790690038558652769::1716764632::0::1::::<><>::res://scripts/Enemy.gd<>uid://633cjybkiv8s::::res://assets/enemy.webp
+game_over.tscn::PackedScene::7911180556905083937::1716764632::0::1::::<><>::uid://codnjwlqvhcfs::::res://assets/black_background_with_smaller_stars.png<>uid://du6twox1v4152::::res://assets/font.ttf
+Main.tscn::PackedScene::6344185906907294522::1716764632::0::1::::<><>::res://scripts/Main.gd<>uid://byyonxopgpa6c::::res://assets/Starry_sky.jpg<>uid://du6twox1v4152::::res://assets/font.ttf
+Player.tscn::PackedScene::224858671234230012::1716764632::0::1::::<><>::res://scripts/Player.gd<>uid://bg2pbwg6l23ae::::res://assets/main character/Cannon.png
+::res://scripts/::1716764114
+Bullet.gd::GDScript::-1::1716764114::0::1::::<>CharacterBody2D<>::
+Enemy.gd::GDScript::-1::1716750662::0::1::::<>CharacterBody2D<>::
+Main.gd::GDScript::-1::1716750662::0::1::::<>Node2D<>::
+Player.gd::GDScript::-1::1716717490::0::1::::<>CharacterBody2D<>::

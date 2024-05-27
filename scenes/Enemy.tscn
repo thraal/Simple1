@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ljasxefo8omj"]
+[gd_scene load_steps=5 format=3 uid="uid://ljasxefo8omj"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_pnlvw"]
 [ext_resource type="Texture2D" uid="uid://633cjybkiv8s" path="res://assets/enemy.webp" id="2_nhoo0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78kee"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4hl8"]
+radius = 62.0081
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqcis"]
+bg_color = Color(0.905882, 0.45098, 0.27451, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -15,12 +18,23 @@ motion_mode = 1
 script = ExtResource("1_pnlvw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_78kee")
+position = Vector2(5, 3)
+shape = SubResource("CircleShape2D_w4hl8")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(2, 0)
 scale = Vector2(0.151123, 0.151123)
 texture = ExtResource("2_nhoo0")
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D"]
+offset_left = -45.0
+offset_top = 70.0
+offset_right = 57.0
+offset_bottom = 97.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_aqcis")
+max_value = 1000.0
+rounded = true
+show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.503

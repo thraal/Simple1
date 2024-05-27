@@ -22,10 +22,18 @@ func _ready() -> void:
 	# Spawn the player
 	spawn_player()
 	
+	# Spawn an enemy immediately
+	spawn_enemy()
+	
 	# Start the enemy spawn timer
 	enemy_timer = enemy_spawn_interval
 
 func _physics_process(delta: float) -> void:
+	# Update the enemy spawn timer
+	enemy_timer -= delta
+	if enemy_timer <= 0:
+		spawn_enemy()
+		enemy_timer = enemy_spawn_interval
 	if amo <= 0:
 		print("Game over!")
 		get_tree().root.get_child(0).queue_free()
@@ -70,10 +78,16 @@ func spawn_enemy() -> void:
 	
 	var enemy = enemy_instance.get_node("CharacterBody2D") as CharacterBody2D
 	
+	# Check if the EnemySpawnPoint node exists
+	var enemy_spawn_point = get_node_or_null("Canvas/EnemySpawnPoint")
+	if enemy_spawn_point == null:
+		print("Error: EnemySpawnPoint node not found!")
+		return
+	
 	# Randomly choose left or right for the enemy spawn
 	var viewport = get_viewport_rect()
 	var enemy_height = enemy.get_node("Sprite2D").texture.get_height()
-	var spawn_y = self.get_node("EnemySpawnPoint").position.y  # Ensure the enemy is within the top bounds (slightly below top edge)
+	var spawn_y = enemy_spawn_point.position.y  # Ensure the enemy is within the top bounds (slightly below top edge)
 	
 	if randi() % 2 == 0:
 		enemy.position = Vector2(viewport.size.x + 50, spawn_y)
@@ -106,4 +120,3 @@ func _on_shoot_bullet(position: Vector2) -> void:
 	bullet.rotation = atan2(direction.y, direction.x) + PI/2
 	
 	print("Shot bullet from position: ", bullet.position, " to direction: ", direction, " with velocity: ", bullet.velocity)
-

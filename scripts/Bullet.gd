@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: float = 800.0
+var speed: float = 4800.0
 var direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 		print("Bullet collided with: ", collision.get_collider())
 		if collision.get_collider().is_in_group("enemies"):
 			print("Bullet hit enemy at position: ", collision.get_collider().position)
-			collision.get_collider().kill(collision)  # Remove the enemy
-			queue_free()                           # Remove the bullet
+			collision.get_collider().take_damage(300)  # Apply damage to the enemy
+			queue_free()  # Remove the bullet
 		else:
 			print("Bullet hit something else")
 
